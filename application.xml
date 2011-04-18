@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ApplicationManifest xmlns="http://schemas.google.com/ApplicationManifest/2009">
+  <Name>GitHub Gadget</Name>
+  <Description>A Simple GitHub Gadget to help contextualize a Xobni user's data.</Description>
+  <Support>
+    <!-- URL explaining how customers get support. -->
+    <Link rel="support" href="http://www.yourwebsite.com/github_support" />
+  </Support>
+
+  <Extension id="GitHubGadget" type="gadget">
+    <!-- Location of the XML file containing your Gadget -->
+    <Url>github.xml</Url>
+    <Container name="mail"/>
+  </Extension>
+</ApplicationManifest>

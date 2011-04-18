@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Module>
+    <ModulePrefs
+      title="GitHub Gadget"
+      description="A Simple GitHub Gadget to help contextualize a Xobni user's data."
+      height="1"
+      author="Adam Thurlow"
+      author_email="adam@sheepdoginc.ca"
+      author_affiliation="SheepdogInc.ca"
+      author_location="Halifax, NS">
+      <Link rel="icon" href="http://github.com/favicon.ico" />
+      <Require feature="setprefs" />
+      <Require feature="opensocial-0.9" />    
+      <Require feature="osapi"/>
+    </ModulePrefs>
+    <Content type="html" view="profile">
+        <![CDATA[
+            <!-- jQuery 1.5.2 -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+            
+            <!-- Development JS and CSS -->
+            <script src="file:///Z:\github\core\xob.js"></script>
+            <script src="file:///Z:\github\lib\github.js"></script>
+            <script src="file:///Z:\github\lib\display.js"></script>
+            <link href="file:///Z:\github\style\main.css" rel="stylesheet" type="text/css" />
+        
+            <div id="head_menu"></div>
+            <div id="container">
+              <div id="select_user" class="view"></div>
+              <div id="details" class="view"></div>
+              <div id="loading" class="view">
+                <h1>Loading!</h1>
+              </div>
+            </div>
+            <script type="text/javascript">
+                function onLoad(){ 
+                    xob.Viewport.init(xob.Gadget.init);
+                }
+                gadgets.util.registerOnLoadHandler(onLoad);
+            </script>
+        ]]>
+      </Content>
+</Module>
