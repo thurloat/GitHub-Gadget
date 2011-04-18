@@ -1,4 +1,9 @@
+/**
+ * Xobni namespace
+ */
 var xob = xob || {};
+
+xob.DEBUG = true;
 
 /**
  * Error Logger shortcut, only outputs to the log if in debug mode.
@@ -6,7 +11,7 @@ var xob = xob || {};
  * @param {string} value A string to be output to the log.
  */
 xob.log = function(value) {
-  if (sd.DEBUG) {
+  if (xob.DEBUG) {
     if (typeof value == 'object') {
       gadgets.log(gadgets.json.stringify(value));
     } else {
@@ -38,7 +43,7 @@ xob.Viewport.viewer = null;
  */
 xob.Viewport.init = function(callback){
     osapi.people.getOwner().execute(function(person){
-        sd.Viewport.viewer = person;
+        xob.Viewport.viewer = person;
         callback();
     });
 };

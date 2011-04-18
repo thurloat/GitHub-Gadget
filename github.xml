@@ -19,10 +19,10 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
             
             <!-- Development JS and CSS -->
-            <script src="file:///Z:\github\core\xob.js"></script>
-            <script src="file:///Z:\github\lib\github.js"></script>
-            <script src="file:///Z:\github\lib\display.js"></script>
-            <link href="file:///Z:\github\style\main.css" rel="stylesheet" type="text/css" />
+            <script src="file:///F:\github\core\xob.js"></script>
+            <script src="file:///F:\github\lib\github.js"></script>
+            <script src="file:///F:\github\lib\display.js"></script>
+            <link href="file:///F:\github\style\main.css" rel="stylesheet" type="text/css" />
         
             <div id="head_menu"></div>
             <div id="container">
@@ -33,8 +33,26 @@
               </div>
             </div>
             <script type="text/javascript">
-                function onLoad(){ 
-                    xob.Viewport.init(xob.Gadget.init);
+                function onLoad(){
+                    
+                    // Call our viewport init to load the contextual user.
+                    xob.Viewport.init(function(){
+                        
+                        // Fetch the emails of the loaded user. 
+                        var email_list = xob.Viewport.viewer_email_list(),
+                            ul = $('<ul/>');
+                        
+                        // Build up the list of email addresses.
+                        for(var i=0; i < email_list.length; i++){
+                            $('<li/>', {text: email_list[i].address}).appendTo(ul);
+                        }
+                        
+                        $('#loading').hide();
+                        
+                        // Insert the emails into the view.
+                        var panel = $('#select_user');
+                        ul.appendTo(panel);
+                    });
                 }
                 gadgets.util.registerOnLoadHandler(onLoad);
             </script>
