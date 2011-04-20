@@ -3,7 +3,9 @@
  */
 var xob = xob || {};
 
+
 xob.DEBUG = true;
+
 
 /**
  * Error Logger shortcut, only outputs to the log if in debug mode.
@@ -18,6 +20,25 @@ xob.log = function(value) {
       gadgets.log(value);
     }
   }
+};
+
+
+/**
+ * Internal shortcut to google gadgets prefs, xob scoped instance
+ * @const
+ */
+xob.Prefs = new gadgets.Prefs();
+
+
+/**
+ * Fetches a key from the google gadgets preferences.
+ * Hot wired to return string values only.
+ *
+ * @param {string} key A key within the local storage.
+ * @return {string} A string stored in the gadgets prefs.
+ */
+gadgets.Prefs.prototype.get = function(key) {
+  return xob.Prefs.getString(key);
 };
 
 

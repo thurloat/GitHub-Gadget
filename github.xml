@@ -36,23 +36,7 @@
                 function onLoad(){
                     
                     // Call our viewport init to load the contextual user.
-                    xob.Viewport.init(function(){
-                        
-                        // Fetch the emails of the loaded user. 
-                        var email_list = xob.Viewport.viewer_email_list(),
-                            ul = $('<ul/>');
-                        
-                        // Build up the list of email addresses.
-                        for(var i=0; i < email_list.length; i++){
-                            $('<li/>', {text: email_list[i].address}).appendTo(ul);
-                        }
-                        
-                        $('#loading').hide();
-                        
-                        // Insert the emails into the view.
-                        var panel = $('#select_user');
-                        ul.appendTo(panel);
-                    });
+                    xob.Viewport.init( xob.Gadget.init );
                 }
                 gadgets.util.registerOnLoadHandler(onLoad);
             </script>
