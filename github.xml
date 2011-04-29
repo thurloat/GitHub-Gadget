@@ -28,7 +28,7 @@
             <div id="container">
               <div id="select_user" class="view"></div>
               <div id="details" class="view"></div>
-              <div id="loading" class="view">
+              <div id="loading" class="view" style="display:block;">
                 <h1>Loading!</h1>
               </div>
             </div>
