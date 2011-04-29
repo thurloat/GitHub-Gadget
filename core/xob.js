@@ -3,7 +3,9 @@
  */
 var xob = xob || {};
 
+
 xob.DEBUG = true;
+
 
 /**
  * Error Logger shortcut, only outputs to the log if in debug mode.
