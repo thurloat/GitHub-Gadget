@@ -52,6 +52,8 @@
                         // Insert the emails into the view.
                         var panel = $('#select_user');
                         ul.appendTo(panel);
+
+                        $('#select_user').show();
                     });
                 }
                 gadgets.util.registerOnLoadHandler(onLoad);
