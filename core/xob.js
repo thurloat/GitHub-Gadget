@@ -1,4 +1,11 @@
+/**
+ * Xobni namespace
+ */
 var xob = xob || {};
+
+
+xob.DEBUG = true;
+
 
 /**
  * Error Logger shortcut, only outputs to the log if in debug mode.
@@ -6,7 +13,7 @@ var xob = xob || {};
  * @param {string} value A string to be output to the log.
  */
 xob.log = function(value) {
-  if (sd.DEBUG) {
+  if (xob.DEBUG) {
     if (typeof value == 'object') {
       gadgets.log(gadgets.json.stringify(value));
     } else {
@@ -38,7 +45,7 @@ xob.Viewport.viewer = null;
  */
 xob.Viewport.init = function(callback){
     osapi.people.getOwner().execute(function(person){
-        sd.Viewport.viewer = person;
+        xob.Viewport.viewer = person;
         callback();
     });
 };
@@ -47,12 +54,12 @@ xob.Viewport.init = function(callback){
  * Shortcut function to get a list of the contextual user's email addresses
  * from the xobni opensocial user.
  *
- * @return {Array.string} A list of emails for the user being displayed.
+ * @return {Array} A list of emails for the user being displayed.
  */
 xob.Viewport.viewer_email_list = function() {
     var emails = [];
     for (var ei=0; ei < xob.Viewport.viewer.emails.length; ei++) {
         emails.push(xob.Viewport.viewer.emails[ei]);
-    };
+    }
     return emails;
 };
