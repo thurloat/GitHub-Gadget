@@ -34,7 +34,8 @@
             </div>
             <script type="text/javascript">
                 function onLoad(){
-                    xob.Viewport.init( xob.Gadget.init );
+                    // This is where we will boot up the gadget.
+                    return false;
                 }
                 gadgets.util.registerOnLoadHandler(onLoad);
             </script>
